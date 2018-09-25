@@ -9,39 +9,39 @@
 import UIKit
 
 protocol GestureControlDelegate: class {
-    func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizerDirection)
+    func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizer.Direction)
 }
 
 class GestureControl: UIView {
-
+    
     weak var delegate: GestureControlDelegate!
-
+    
     init(view: UIView, delegate: GestureControlDelegate) {
         self.delegate = delegate
-
+        
         super.init(frame: CGRect.zero)
-
+        
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(GestureControl.swipeHandler(_:)))
         swipeLeft.direction = .left
         addGestureRecognizer(swipeLeft)
-
+        
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GestureControl.swipeHandler(_:)))
         swipeRight.direction = .right
         addGestureRecognizer(swipeRight)
-
+        
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
-
+        
         view.addSubview(self)
         // add constraints
-        for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
+        for attribute: NSLayoutConstraint.Attribute in [.left, .right, .top, .bottom] {
             (view, self) >>>- {
                 $0.attribute = attribute
                 return
             }
         }
     }
-
+    
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -50,7 +50,7 @@ class GestureControl: UIView {
 // MARK: actions
 
 extension GestureControl {
-
+    
     @objc dynamic func swipeHandler(_ gesture: UISwipeGestureRecognizer) {
         delegate.gestureControlDidSwipe(gesture.direction)
     }

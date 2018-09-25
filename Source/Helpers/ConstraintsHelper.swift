@@ -9,11 +9,11 @@
 import UIKit
 
 struct ConstraintInfo {
-    var attribute: NSLayoutAttribute = .left
-    var secondAttribute: NSLayoutAttribute = .notAnAttribute
+    var attribute: NSLayoutConstraint.Attribute = .left
+    var secondAttribute: NSLayoutConstraint.Attribute = .notAnAttribute
     var constant: CGFloat = 0
     var identifier: String?
-    var relation: NSLayoutRelation = .equal
+    var relation: NSLayoutConstraint.Relation = .equal
 }
 
 precedencegroup constOp {
@@ -28,7 +28,7 @@ func >>>- <T: UIView>(left: (T, T), block: (inout ConstraintInfo) -> Void) -> NS
     var info = ConstraintInfo()
     block(&info)
     info.secondAttribute = info.secondAttribute == .notAnAttribute ? info.attribute : info.secondAttribute
-
+    
     let constraint = NSLayoutConstraint(item: left.1,
                                         attribute: info.attribute,
                                         relatedBy: info.relation,
@@ -45,7 +45,7 @@ func >>>- <T: UIView>(left: (T, T), block: (inout ConstraintInfo) -> Void) -> NS
 func >>>- <T: UIView>(left: T, block: (inout ConstraintInfo) -> Void) -> NSLayoutConstraint {
     var info = ConstraintInfo()
     block(&info)
-
+    
     let constraint = NSLayoutConstraint(item: left,
                                         attribute: info.attribute,
                                         relatedBy: info.relation,
@@ -63,7 +63,7 @@ func >>>- <T: UIView>(left: (T, T, T), block: (inout ConstraintInfo) -> Void) ->
     var info = ConstraintInfo()
     block(&info)
     info.secondAttribute = info.secondAttribute == .notAnAttribute ? info.attribute : info.secondAttribute
-
+    
     let constraint = NSLayoutConstraint(item: left.1,
                                         attribute: info.attribute,
                                         relatedBy: info.relation,
