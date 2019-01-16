@@ -74,9 +74,15 @@ extension FillAnimationView: CAAnimationDelegate {
             $0.duration = duration
             $0.toValue = path.cgPath
             $0.isRemovedOnCompletion = false
+<<<<<<< HEAD
             $0.fillMode = CAMediaTimingFillMode.forwards
             $0.delegate = self
             $0.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+=======
+            $0.fillMode = .forwards
+            $0.delegate = self
+            $0.timingFunction = CAMediaTimingFunction(name: .easeIn)
+>>>>>>> upstream/master
         }
         return animation
     }

@@ -48,14 +48,22 @@ extension OnboardingContentViewItem {
             $0.relation = .lessThanOrEqual
             return
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> upstream/master
         for attribute in [NSLayoutConstraint.Attribute.leading, NSLayoutConstraint.Attribute.trailing] {
             (view, item) >>>- {
                 $0.attribute = attribute
                 return
             }
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> upstream/master
         for attribute in [NSLayoutConstraint.Attribute.centerX, NSLayoutConstraint.Attribute.centerY] {
             (view, item) >>>- {
                 $0.attribute = attribute
@@ -109,7 +117,11 @@ private extension OnboardingContentViewItem {
             $0.relation = .lessThanOrEqual
             return
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> upstream/master
         for attribute in [NSLayoutConstraint.Attribute.centerX, NSLayoutConstraint.Attribute.leading, NSLayoutConstraint.Attribute.trailing] {
             (onView, label) >>>- {
                 $0.attribute = attribute
@@ -133,7 +145,11 @@ private extension OnboardingContentViewItem {
             $0.relation = .lessThanOrEqual
             return
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> upstream/master
         for (attribute, constant) in [(NSLayoutConstraint.Attribute.leading, 30), (NSLayoutConstraint.Attribute.trailing, -30)] {
             (onView, label) >>>- {
                 $0.attribute = attribute
@@ -177,7 +193,11 @@ private extension OnboardingContentViewItem {
             $0.constant = 188
             return
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> upstream/master
         for attribute in [NSLayoutConstraint.Attribute.centerX, NSLayoutConstraint.Attribute.top] {
             (onView, imageView) >>>- { $0.attribute = attribute; return }
         }

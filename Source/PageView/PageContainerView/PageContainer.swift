@@ -108,7 +108,11 @@ extension PageContrainer {
         [NSLayoutConstraint.Attribute.left, NSLayoutConstraint.Attribute.centerY].forEach { attribute in
             (self, item) >>>- { $0.attribute = attribute; return }
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> upstream/master
         [NSLayoutConstraint.Attribute.width, NSLayoutConstraint.Attribute.height].forEach { attribute in
             item >>>- {
                 $0.attribute = attribute

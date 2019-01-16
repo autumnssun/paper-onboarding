@@ -65,9 +65,15 @@ extension PageView {
         pageView.translatesAutoresizingMaskIntoConstraints = false
         pageView.alpha = 0.4
         view.addSubview(pageView)
+<<<<<<< HEAD
         
         let layoutAttribs:[(NSLayoutConstraint.Attribute, Int)] =  [(NSLayoutConstraint.Attribute.left, 0), (NSLayoutConstraint.Attribute.right, 0), (NSLayoutConstraint.Attribute.bottom, Int(bottomConstant))]
         
+=======
+
+      let layoutAttribs:[(NSLayoutConstraint.Attribute, Int)] =  [(NSLayoutConstraint.Attribute.left, 0), (NSLayoutConstraint.Attribute.right, 0), (NSLayoutConstraint.Attribute.bottom, Int(bottomConstant))]
+      
+>>>>>>> upstream/master
         // add constraints
         for (attribute, const) in layoutAttribs {
             (view, pageView) >>>- {
