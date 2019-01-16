@@ -9,21 +9,21 @@
 import UIKit
 
 open class OnboardingContentViewItem: UIView {
-    
+
     public var descriptionBottomConstraint: NSLayoutConstraint?
     public var titleCenterConstraint: NSLayoutConstraint?
     public var informationImageWidthConstraint: NSLayoutConstraint?
     public var informationImageHeightConstraint: NSLayoutConstraint?
-    
+
     open var imageView: UIImageView?
     open var titleLabel: UILabel?
     open var descriptionLabel: UILabel?
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
-    
+
     public required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -32,15 +32,15 @@ open class OnboardingContentViewItem: UIView {
 // MARK: public
 
 extension OnboardingContentViewItem {
-    
+
     class func itemOnView(_ view: UIView) -> OnboardingContentViewItem {
         let item = Init(OnboardingContentViewItem(frame: CGRect.zero)) {
             $0.backgroundColor = .clear
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        
+
         view.addSubview(item)
-        
+
         // add constraints
         item >>>- {
             $0.attribute = .height
@@ -48,29 +48,20 @@ extension OnboardingContentViewItem {
             $0.relation = .lessThanOrEqual
             return
         }
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> upstream/master
         for attribute in [NSLayoutConstraint.Attribute.leading, NSLayoutConstraint.Attribute.trailing] {
             (view, item) >>>- {
                 $0.attribute = attribute
                 return
             }
         }
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> upstream/master
         for attribute in [NSLayoutConstraint.Attribute.centerX, NSLayoutConstraint.Attribute.centerY] {
             (view, item) >>>- {
                 $0.attribute = attribute
                 return
             }
         }
-        
+
         return item
     }
 }
@@ -78,13 +69,13 @@ extension OnboardingContentViewItem {
 // MARK: create
 
 private extension OnboardingContentViewItem {
-    
+
     func commonInit() {
-        
+
         let titleLabel = createTitleLabel(self)
         let descriptionLabel = createDescriptionLabel(self)
         let imageView = createImage(self)
-        
+
         // added constraints
         titleCenterConstraint = (self, titleLabel, imageView) >>>- {
             $0.attribute = .top
@@ -98,18 +89,18 @@ private extension OnboardingContentViewItem {
             $0.constant = 10
             return
         }
-        
+
         self.titleLabel = titleLabel
         self.descriptionLabel = descriptionLabel
         self.imageView = imageView
     }
-    
+
     func createTitleLabel(_ onView: UIView) -> UILabel {
         let label = Init(createLabel()) {
             $0.font = UIFont(name: "Nunito-Bold", size: 36)
         }
         onView.addSubview(label)
-        
+
         // add constraints
         label >>>- {
             $0.attribute = .height
@@ -117,11 +108,6 @@ private extension OnboardingContentViewItem {
             $0.relation = .lessThanOrEqual
             return
         }
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> upstream/master
         for attribute in [NSLayoutConstraint.Attribute.centerX, NSLayoutConstraint.Attribute.leading, NSLayoutConstraint.Attribute.trailing] {
             (onView, label) >>>- {
                 $0.attribute = attribute
@@ -130,14 +116,14 @@ private extension OnboardingContentViewItem {
         }
         return label
     }
-    
+
     func createDescriptionLabel(_ onView: UIView) -> UILabel {
         let label = Init(createLabel()) {
             $0.font = UIFont(name: "OpenSans-Regular", size: 14)
             $0.numberOfLines = 0
         }
         onView.addSubview(label)
-        
+
         // add constraints
         label >>>- {
             $0.attribute = .height
@@ -145,11 +131,6 @@ private extension OnboardingContentViewItem {
             $0.relation = .lessThanOrEqual
             return
         }
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> upstream/master
         for (attribute, constant) in [(NSLayoutConstraint.Attribute.leading, 30), (NSLayoutConstraint.Attribute.trailing, -30)] {
             (onView, label) >>>- {
                 $0.attribute = attribute
@@ -157,13 +138,13 @@ private extension OnboardingContentViewItem {
                 return
             }
         }
-        
+
         (onView, label) >>>- { $0.attribute = .centerX; return }
         descriptionBottomConstraint = (onView, label) >>>- { $0.attribute = .bottom; return }
-        
+
         return label
     }
-    
+
     func createLabel() -> UILabel {
         return Init(UILabel(frame: CGRect.zero)) {
             $0.backgroundColor = .clear
@@ -172,36 +153,31 @@ private extension OnboardingContentViewItem {
             $0.textColor = .white
         }
     }
-    
+
     func createImage(_ onView: UIView) -> UIImageView {
         let imageView = Init(UIImageView(frame: CGRect.zero)) {
             $0.contentMode = .scaleAspectFit
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        
+
         onView.addSubview(imageView)
-        
+
         // add constratints
         informationImageWidthConstraint = imageView >>>- {
             $0.attribute = NSLayoutConstraint.Attribute.width
             $0.constant = 188
             return
         }
-        
+
         informationImageHeightConstraint = imageView >>>- {
             $0.attribute = NSLayoutConstraint.Attribute.height
             $0.constant = 188
             return
         }
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> upstream/master
         for attribute in [NSLayoutConstraint.Attribute.centerX, NSLayoutConstraint.Attribute.top] {
             (onView, imageView) >>>- { $0.attribute = attribute; return }
         }
-        
+
         return imageView
     }
 }
